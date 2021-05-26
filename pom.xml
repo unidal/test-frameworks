@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <parent>
+      <groupId>org.unidal</groupId>
+      <artifactId>parent</artifactId>
+      <version>1.0.0</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.unidal.test</groupId>
+   <artifactId>parent</artifactId>
+   <version>5.0.3</version>
+   <packaging>pom</packaging>
+   <name>Test Support</name>
+   <modules>
+      <module>eunit-testfwk</module>
+      <module>test-framework</module>
+   </modules>
+   <url>https://github.com/unidal/test</url>
+   <scm>
+      <connection>scm:git:git://github.com/unidal/test.git</connection>
+      <developerConnection>scm:git:ssh://git@github.com/unidal/test.git</developerConnection>
+      <url>https://github.com/unidal/test/tree/master</url>
+      <tag>HEAD</tag>
+   </scm>
+   <properties>
+      <foundation.version>5.0.3</foundation.version>
+
+      <junit.version>4.12</junit.version>
+      <testng.version>6.9.10</testng.version>
+      <jetty.version>8.1.22.v20160922</jetty.version>
+
+      <!-- plugin version -->
+      <codegen.plugin.version>4.0.6</codegen.plugin.version>
+      <plexus.plugin.version>4.0.6</plexus.plugin.version>
+   </properties>
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>org.unidal.foundation</groupId>
+            <artifactId>foundation-service</artifactId>
+            <version>${foundation.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.unidal.lab</groupId>
+            <artifactId>test-framework</artifactId>
+            <version>${project.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlets</artifactId>
+            <version>${jetty.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jsp</artifactId>
+            <version>${jetty.version}</version>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
+   <build>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.unidal.maven.plugins</groupId>
+               <artifactId>codegen-maven-plugin</artifactId>
+               <version>${codegen.plugin.version}</version>
+            </plugin>
+            <plugin>
+               <groupId>org.unidal.maven.plugins</groupId>
+               <artifactId>plexus-maven-plugin</artifactId>
+               <version>${plexus.plugin.version}</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+</project>
+
