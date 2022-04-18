@@ -27,11 +27,11 @@
 
       <junit.version>4.12</junit.version>
       <testng.version>6.9.10</testng.version>
-      <jetty.version>8.1.22.v20160922</jetty.version>
+      <jetty.version>10.0.8</jetty.version>
 
       <!-- plugin version -->
-      <codegen.plugin.version>4.0.6</codegen.plugin.version>
-      <plexus.plugin.version>4.0.6</plexus.plugin.version>
+      <codegen.plugin.version>6.0.0</codegen.plugin.version>
+      <plexus.plugin.version>6.0.0</plexus.plugin.version>
    </properties>
    <dependencyManagement>
       <dependencies>

@@ -3,6 +3,7 @@ package org.unidal.test.jetty;
 import java.io.IOException;
 import java.net.URL;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +25,7 @@ public class ResourceFallbackErrorHandler extends ErrorPageErrorHandler {
 
    @Override
    public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
-         throws IOException {
+         throws IOException, ServletException {
       String uri = request.getRequestURI();
       URL url = m_manager.getResourceUrl(uri);
 

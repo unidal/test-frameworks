@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.eclipse.jetty.util.resource.FileResource;
+import org.eclipse.jetty.util.resource.PathResource;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.resource.ResourceCollection;
 import org.eclipse.jetty.util.resource.URLResource;
@@ -42,13 +42,9 @@ public class WebModuleResource extends ResourceCollection {
          File file = new File(m_docRoot, uri);
 
          if (file.exists()) {
-            try {
-               resource = new FileResource(file.toURI().toURL());
+            resource = new PathResource(file);
 
-               m_resources.putIfAbsent(uri, resource);
-            } catch (URISyntaxException e) {
-               // ignore it
-            }
+            m_resources.putIfAbsent(uri, resource);
          }
       }
 
@@ -61,7 +57,7 @@ public class WebModuleResource extends ResourceCollection {
                String protocol = url.getProtocol();
 
                if (protocol.equals("file")) {
-                  resource = new FileResource(url);
+                  resource = new PathResource(url);
                   m_resources.putIfAbsent(uri, resource);
                } else if (protocol.equals("jar")) {
                   resource = new URLResource(url, null, true) {

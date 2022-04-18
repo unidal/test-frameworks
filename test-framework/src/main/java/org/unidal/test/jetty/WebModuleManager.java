@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.zip.ZipEntry;
 
-import org.eclipse.jetty.util.resource.FileResource;
+import org.eclipse.jetty.util.resource.PathResource;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.resource.URLResource;
 import org.unidal.helper.Scanners;
@@ -44,7 +44,7 @@ public class WebModuleManager {
                String protocol = url.getProtocol();
 
                if (protocol.equals("file")) {
-                  resource = new FileResource(url);
+                  resource = new PathResource(url);
                   m_resources.put(uri, resource);
                } else if (protocol.equals("jar")) {
                   resource = new URLResource(url, null, true) {
