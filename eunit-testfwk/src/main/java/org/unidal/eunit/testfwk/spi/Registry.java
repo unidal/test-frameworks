@@ -215,7 +215,7 @@ public class Registry {
       }
    }
 
-   public <T extends ITaskType> void registerTaskExecutors(ITaskExecutor<T>... executors) {
+   public <T extends ITaskType> void registerTaskExecutors(ITaskExecutor<T>[] executors) {
       for (ITaskExecutor<T> executor : executors) {
          @SuppressWarnings("unchecked")
          ITaskExecutor<ITaskType> e = (ITaskExecutor<ITaskType>) executor;

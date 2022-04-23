@@ -19,14 +19,15 @@ public enum ServiceProviderHandler implements IMetaAnnotationHandler<ServiceProv
    }
 
    @Override
-   public void handle(IClassContext ctx, final Annotation annotation, final ServiceProvider meta, AnnotatedElement target,
-         boolean after) {
+   public void handle(IClassContext ctx, final Annotation annotation, final ServiceProvider meta,
+         AnnotatedElement target, boolean after) {
       IAnnotationHandler<Annotation, AnnotatedElement> handler;
 
       try {
          handler = newInstance(meta.value());
       } catch (Throwable e) {
-         throw new IllegalStateException(String.format("Error when creating new instance of %s!", meta.value().getName()), e);
+         throw new IllegalStateException(
+               String.format("Error when creating new instance of %s!", meta.value().getName()), e);
       }
 
       if (handler.isAfter() == after) {
@@ -43,10 +44,7 @@ public enum ServiceProviderHandler implements IMetaAnnotationHandler<ServiceProv
          try {
             Method method = clazz.getMethod("values");
 
-            if (!method.isAccessible()) {
-               method.setAccessible(true);
-            }
-
+            method.setAccessible(true);
             values = (Object[]) method.invoke(null);
          } catch (InvocationTargetException e) {
             throw e.getCause();
@@ -65,7 +63,7 @@ public enum ServiceProviderHandler implements IMetaAnnotationHandler<ServiceProv
             throw new RuntimeException(String.format("Enum(%s) can only have one enum field!", clazz.getName()));
          }
       } else {
-         return (IAnnotationHandler<Annotation, AnnotatedElement>) clazz.newInstance();
+         return (IAnnotationHandler<Annotation, AnnotatedElement>) clazz.getConstructor().newInstance();
       }
    }
 

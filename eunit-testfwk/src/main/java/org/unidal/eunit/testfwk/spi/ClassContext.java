@@ -19,7 +19,7 @@ public class ClassContext {
       m_testClass = testClass;
 
       try {
-         m_testInstance = testClass.newInstance();
+         m_testInstance = testClass.getConstructor().newInstance();
       } catch (Exception e) {
          throw new RuntimeException(String.format(
                "Unable to create instance of test class(%s), please make sure it has a public zero-argument constructor defined!",

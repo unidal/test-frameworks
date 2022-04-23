@@ -33,10 +33,7 @@ public class CaseContext implements ICaseContext {
       try {
          Constructor<?> c = testClass.getDeclaredConstructor();
 
-         if (!c.isAccessible()) {
-            c.setAccessible(true);
-         }
-
+         c.setAccessible(true);
          m_testInstance = c.newInstance();
       } catch (Exception e) {
          throw new RuntimeException(String.format(
@@ -121,9 +118,7 @@ public class CaseContext implements ICaseContext {
    public Object invokeWithInjection(EunitMethod eunitMethod) throws Throwable {
       Method method = eunitMethod.getMethod();
 
-      if (!method.isAccessible()) {
-         method.setAccessible(true);
-      }
+      method.setAccessible(true);
 
       if (method.getParameterTypes().length == 0) {
          try {

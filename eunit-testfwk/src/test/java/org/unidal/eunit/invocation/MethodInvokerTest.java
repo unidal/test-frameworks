@@ -99,7 +99,7 @@ public class MethodInvokerTest {
 
       @Override
       public Object resolve(CaseContext ctx, EunitParameter eunitParameter) {
-         return new Double(12.34d);
+         return Double.valueOf(12.34d);
       }
    }
 
