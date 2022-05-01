@@ -13,8 +13,8 @@
    <name>Test Support</name>
    <modules>
       <!--
-      <module>eunit-testfwk</module>
       -->
+      <module>eunit-testfwk</module>
       <module>test-framework</module>
    </modules>
    <url>https://gitee.com/unidal/test</url>
